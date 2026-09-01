@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solchan | $SOLCHAN — The Shiba of Solana</title>
+  <meta name="description" content="Solchan is a Shiba dog bringing loyal vibes, wild memes, and unstoppable energy to Solana. Buy $SOLCHAN on Solana." />
+  <meta name="theme-color" content="#14F195" />
+  <meta property="og:title" content="Solchan | $SOLCHAN" />
+  <meta property="og:description" content="Solchan is a Shiba dog bringing loyal vibes, wild memes, and unstoppable energy to Solana!" />
+  <meta property="og:image" content="banner.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Solchan | $SOLCHAN" />
+  <meta name="twitter:description" content="Loyal vibes, wild memes, unstoppable energy — the Shiba of Solana." />
+  <meta name="twitter:image" content="banner.jpg" />
+  <link rel="icon" href="logo.jpg" />
+  <link rel="apple-touch-icon" href="logo.jpg" />
+  <link rel="preload" as="image" href="logo.jpg" />
+  <link rel="preload" as="image" href="banner.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sol: { purple: "#9945FF", green: "#14F195", cyan: "#00D1FF" },
+            neon: { mint: "#00E8C4", cyan: "#22D3EE", blue: "#7B8CFF", purple: "#C084FC" }
+          },
+          fontFamily: {
+            display: ["Orbitron", "sans-serif"],
+            body: ["Sora", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --sol-purple: #9945FF;
+      --sol-green: #14F195;
+      --mint: #00E8C4;
+      --cyan: #22D3EE;
+      --blue: #7B8CFF;
+      --purple: #C084FC;
+      --violet: #A855F7;
+      --bg: #07060f;
+      --text: #eef4ff;
+      --muted: #9db0d4;
+      --ca: "GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump";
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 5.5rem; }
+    body {
+      margin: 0;
+      font-family: "Sora", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .solana-bg {
+      background:
+        radial-gradient(ellipse 90% 55% at 8% -8%, rgba(153, 69, 255, 0.38), transparent 52%),
+        radial-gradient(ellipse 70% 45% at 96% 0%, rgba(20, 241, 149, 0.16), transparent 48%),
+        radial-gradient(ellipse 55% 40% at 70% 100%, rgba(153, 69, 255, 0.18), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(20, 241, 149, 0.08), transparent 50%),
+        #07060f;
+    }
+
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(153, 69, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 241, 149, 0.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 75%);
+    }
+
+    .stars, .stars2, .stars3 {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .stars {
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 18%, #fff, transparent),
+        radial-gradient(1px 1px at 28% 72%, #c4b5fd, transparent),
+        radial-gradient(1.5px 1.5px at 44% 36%, #fff, transparent),
+        radial-gradient(1px 1px at 61% 12%, #67e8f9, transparent),
+        radial-gradient(1.5px 1.5px at 78% 64%, #fff, transparent),
+        radial-gradient(1px 1px at 91% 28%, #c4b5fd, transparent),
+        radial-gradient(1px 1px at 8% 88%, #14F195, transparent),
+        radial-gradient(1.5px 1.5px at 52% 92%, #fff, transparent);
+      animation: twinkle 6s ease-in-out infinite;
+    }
+    .stars2 {
+      background-image:
+        radial-gradient(1px 1px at 18% 44%, #a5f3fc, transparent),
+        radial-gradient(1.5px 1.5px at 36% 8%, #fff, transparent),
+        radial-gradient(1px 1px at 70% 48%, #ddd6fe, transparent),
+        radial-gradient(1px 1px at 84% 82%, #14F195, transparent);
+      animation: twinkle 9s ease-in-out infinite reverse;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.55; }
+      50% { opacity: 1; }
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(70px);
+      pointer-events: none;
+      animation: drift 18s ease-in-out infinite;
+    }
+    .orb-green {
+      width: 340px; height: 340px;
+      background: rgba(20, 241, 149, 0.18);
+      top: 8%; right: -80px;
+    }
+    .orb-purple {
+      width: 420px; height: 420px;
+      background: rgba(153, 69, 255, 0.22);
+      top: 30%; left: -120px;
+      animation-delay: -6s;
+    }
+    .orb-mint {
+      width: 260px; height: 260px;
+      background: rgba(0, 232, 196, 0.12);
+      bottom: 10%; right: 15%;
+      animation-delay: -11s;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, -24px) scale(1.08); }
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #00E8C4 0%, #22D3EE 32%, #7B8CFF 66%, #C084FC 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .glow-title {
+      text-shadow: 0 0 32px rgba(0, 232, 196, 0.28), 0 0 64px rgba(153, 69, 255, 0.2);
+    }
+
+    .halo {
+      background: conic-gradient(from 0deg, #14F195, #00E8C4, #22D3EE, #7B8CFF, #9945FF, #C084FC, #14F195);
+      animation: spin 10s linear infinite;
+      filter: blur(18px);
+      opacity: 0.7;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .logo-float { animation: floaty 5s ease-in-out infinite; }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .holo {
+      background:
+        linear-gradient(180deg, rgba(14, 12, 28, 0.92), rgba(10, 8, 22, 0.92)) padding-box,
+        linear-gradient(135deg, #14F195, #00E8C4, #7B8CFF, #9945FF) border-box;
+      border: 1px solid transparent;
+    }
+
+    .btn-buy {
+      background: linear-gradient(90deg, #14F195 0%, #00E8C4 55%, #22D3EE 100%);
+      color: #06110c;
+      box-shadow: 0 0 28px rgba(20, 241, 149, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-buy::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+      transform: translateX(-120%);
+      animation: shine 3.4s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0%, 55% { transform: translateX(-120%); }
+      80%, 100% { transform: translateX(120%); }
+    }
+    .btn-buy:hover { box-shadow: 0 0 42px rgba(20, 241, 149, 0.65); transform: translateY(-2px) scale(1.03); }
+    .btn-chart {
+      background: rgba(153, 69, 255, 0.12);
+      border: 1px solid rgba(192, 132, 252, 0.55);
+      color: #f3e8ff;
+      box-shadow: 0 0 22px rgba(153, 69, 255, 0.22);
+    }
+    .btn-chart:hover {
+      background: rgba(153, 69, 255, 0.22);
+      box-shadow: 0 0 36px rgba(153, 69, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .nav-glass {
+      background: rgba(7, 6, 15, 0.55);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-glass.scrolled {
+      background: rgba(7, 6, 15, 0.86);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .paw {
+      position: absolute;
+      opacity: 0.09;
+      filter: drop-shadow(0 0 8px #00E8C4);
+      animation: pawfloat 9s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes pawfloat {
+      0%, 100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-16px) rotate(8deg); }
+    }
+
+    .step-num {
+      background: linear-gradient(135deg, #14F195, #00E8C4 40%, #7B8CFF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 5.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: linear-gradient(90deg, rgba(20,241,149,0.18), rgba(153,69,255,0.18));
+      border: 1px solid rgba(0, 232, 196, 0.45);
+      color: #d1fae5;
+      padding: 0.7rem 1.1rem;
+      border-radius: 9999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+      z-index: 80;
+      backdrop-filter: blur(12px);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #07060f; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(#14F195, #9945FF);
+      border-radius: 99px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: reveal 0.8s ease forwards;
+    }
+    .d1 { animation-delay: 0.08s; }
+    .d2 { animation-delay: 0.16s; }
+    .d3 { animation-delay: 0.24s; }
+    .d4 { animation-delay: 0.32s; }
+    @keyframes reveal {
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body class="solana-bg font-body antialiased">
+  <div class="fixed inset-0 grid-overlay pointer-events-none"></div>
+  <div class="fixed inset-0 stars pointer-events-none"></div>
+  <div class="fixed inset-0 stars2 pointer-events-none"></div>
+
+  <!-- Paw decorations -->
+  <svg class="paw hidden md:block" style="top:18%;left:4%;width:42px" viewBox="0 0 24 24" fill="#00E8C4"><ellipse cx="12" cy="16.2" rx="5.2" ry="4.2"/><circle cx="5.2" cy="10.2" r="2.1"/><circle cx="9.2" cy="7.1" r="2.15"/><circle cx="14.8" cy="7.1" r="2.15"/><circle cx="18.8" cy="10.2" r="2.1"/></svg>
+  <svg class="paw hidden md:block" style="top:62%;right:6%;width:36px;animation-delay:-3s" viewBox="0 0 24 24" fill="#C084FC"><ellipse cx="12" cy="16.2" rx="5.2" ry="4.2"/><circle cx="5.2" cy="10.2" r="2.1"/><circle cx="9.2" cy="7.1" r="2.15"/><circle cx="14.8" cy="7.1" r="2.15"/><circle cx="18.8" cy="10.2" r="2.1"/></svg>
+  <svg class="paw hidden lg:block" style="top:38%;right:12%;width:28px;animation-delay:-5s" viewBox="0 0 24 24" fill="#22D3EE"><ellipse cx="12" cy="16.2" rx="5.2" ry="4.2"/><circle cx="5.2" cy="10.2" r="2.1"/><circle cx="9.2" cy="7.1" r="2.15"/><circle cx="14.8" cy="7.1" r="2.15"/><circle cx="18.8" cy="10.2" r="2.1"/></svg>
+
+  <!-- NAV -->
+  <header id="nav" class="nav-glass fixed top-0 inset-x-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 min-w-0">
+        <img src="logo.jpg" alt="Solchan logo" class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl object-cover ring-1 ring-cyan-300/30 shadow-[0_0_18px_rgba(0,232,196,0.35)]" />
+        <span class="font-display font-extrabold tracking-[0.18em] text-sm sm:text-base gradient-text">SOLCHAN</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#c4d4f5]">
+        <a href="#about" class="hover:text-neon-mint transition">About</a>
+        <a href="#how-to-buy" class="hover:text-neon-mint transition">How to Buy</a>
+        <a href="#chart" class="hover:text-neon-mint transition">Chart</a>
+        <a href="#pack" class="hover:text-neon-mint transition">The Pack</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/Solchanmeme" target="_blank" rel="noopener noreferrer" title="Telegram" class="hidden sm:block rounded-full overflow-hidden w-9 h-9 ring-1 ring-white/10 hover:ring-cyan-300/50 hover:scale-110 transition">
+          <img src="tg.png" alt="Telegram" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://x.com/Solchanmeme" target="_blank" rel="noopener noreferrer" title="X / Twitter" class="hidden sm:block rounded-full overflow-hidden w-9 h-9 ring-1 ring-white/10 hover:ring-purple-300/50 hover:scale-110 transition bg-black">
+          <img src="x.png" alt="X" class="w-full h-full object-cover" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-buy hidden sm:inline-flex items-center rounded-full px-4 py-2 text-xs font-bold tracking-wide">Buy Now</a>
+        <button id="menu-btn" type="button" class="md:hidden w-10 h-10 rounded-xl holo flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="menu-icon" width="20" height="20" fill="none" stroke="#00E8C4" stroke-width="2"><path d="M4 6h12M4 10h12M4 14h12"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 px-4 pb-4 pt-2 space-y-1 bg-[#07060f]/95">
+      <a href="#about" class="block py-3 text-sm text-[#c4d4f5]">About</a>
+      <a href="#how-to-buy" class="block py-3 text-sm text-[#c4d4f5]">How to Buy</a>
+      <a href="#chart" class="block py-3 text-sm text-[#c4d4f5]">Chart</a>
+      <a href="#pack" class="block py-3 text-sm text-[#c4d4f5]">The Pack</a>
+      <div class="flex gap-3 pt-2">
+        <a href="https://t.me/Solchanmeme" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/10"><img src="tg.png" alt="Telegram" /></a>
+        <a href="https://x.com/Solchanmeme" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/10 bg-black"><img src="x.png" alt="X" /></a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-buy flex-1 text-center rounded-full py-2.5 text-sm font-bold">Buy Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="relative min-h-screen pt-28 pb-16 sm:pt-32 sm:pb-20 overflow-hidden">
+      <div class="orb orb-green"></div>
+      <div class="orb orb-purple"></div>
+      <div class="orb orb-mint"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center text-center">
+          <div class="relative mb-8 logo-float">
+            <div class="absolute -inset-4 rounded-[2rem] halo"></div>
+            <div class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-[1.6rem] overflow-hidden ring-1 ring-white/10 shadow-[0_0_50px_rgba(0,232,196,0.28)] bg-black">
+              <img src="logo.jpg" alt="Solchan — neon Shiba mascot" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+          <p class="reveal font-display text-[11px] sm:text-xs tracking-[0.38em] text-neon-mint/90 mb-4">BUILT ON SOLANA · POWERED BY THE PACK</p>
+          <h1 class="reveal d1 font-display font-black text-5xl sm:text-7xl md:text-8xl tracking-[0.12em] gradient-text glow-title">SOLCHAN</h1>
+          <p class="reveal d2 mt-3 font-display text-lg sm:text-2xl tracking-[0.35em] text-neon-purple">$SOLCHAN</p>
+          <p class="reveal d3 mt-6 max-w-2xl text-base sm:text-lg text-[#c9d7f5] leading-relaxed">
+            Solchan is a Shiba dog bringing <span class="text-neon-mint font-semibold">loyal vibes</span>,
+            <span class="text-neon-cyan font-semibold">wild memes</span>, and
+            <span class="text-neon-purple font-semibold">unstoppable energy</span> to Solana!
+          </p>
+
+          <div class="reveal d4 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+            <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-buy inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-extrabold tracking-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Buy Now
+            </a>
+            <a href="https://dexscreener.com/solana/GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-chart inline-flex items-center justify-center gap-2 rounded-full px-8 py-3.5 text-sm font-bold tracking-wide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 5-7"/></svg>
+              Chart
+            </a>
+          </div>
+
+          <!-- Copy CA -->
+          <div class="reveal d4 mt-6 w-full max-w-xl">
+            <div class="holo rounded-2xl px-4 py-3 flex items-center gap-3">
+              <span class="shrink-0 text-[10px] font-display tracking-[0.25em] text-neon-mint">CA</span>
+              <code id="ca-display" class="flex-1 min-w-0 truncate text-left text-xs sm:text-sm text-[#dbe7ff] font-medium tracking-wide">GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump</code>
+              <button type="button" id="copy-ca" class="shrink-0 inline-flex items-center gap-1.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 text-[11px] font-bold tracking-wide text-neon-mint transition">
+                <svg id="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span id="copy-label">Copy</span>
+              </button>
+            </div>
+            <p class="mt-2 text-[11px] text-[#7f93b8]">Tap copy to grab the contract. Always verify the CA before you swap.</p>
+          </div>
+        </div>
+
+        <div class="mt-12 sm:mt-16 relative rounded-3xl overflow-hidden holo shadow-[0_20px_80px_rgba(153,69,255,0.22)]">
+          <img src="banner.jpg" alt="Solchan banner — neon Shiba on Solana" class="w-full h-auto block" />
+          <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-cyan-300/15 rounded-3xl"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="relative border-y border-white/10 bg-gradient-to-r from-[#14F195]/10 via-[#9945FF]/10 to-[#14F195]/10 overflow-hidden py-3">
+      <div class="ticker-track font-display text-xs sm:text-sm tracking-[0.28em] text-neon-mint/90">
+        <span class="px-6">$SOLCHAN</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">LOYAL VIBES</span><span class="text-sol-green">✦</span>
+        <span class="px-6">WILD MEMES</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">UNSTOPPABLE ENERGY</span><span class="text-sol-green">✦</span>
+        <span class="px-6">SHIBA ON SOLANA</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">JOIN THE PACK</span><span class="text-sol-green">✦</span>
+        <span class="px-6">$SOLCHAN</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">LOYAL VIBES</span><span class="text-sol-green">✦</span>
+        <span class="px-6">WILD MEMES</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">UNSTOPPABLE ENERGY</span><span class="text-sol-green">✦</span>
+        <span class="px-6">SHIBA ON SOLANA</span><span class="text-neon-purple">✦</span>
+        <span class="px-6">JOIN THE PACK</span><span class="text-sol-green">✦</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div class="relative flex justify-center">
+            <img src="logo.jpg" alt="" aria-hidden="true" class="absolute -right-8 -top-10 w-[70%] opacity-20 blur-sm mix-blend-screen pointer-events-none hidden sm:block" />
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-[2rem] overflow-hidden ring-1 ring-white/10 shadow-[0_0_70px_rgba(153,69,255,0.28)]">
+              <img src="logo.jpg" alt="Solchan Shiba" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div>
+            <p class="font-display text-xs tracking-[0.35em] text-neon-mint mb-3">MEET THE SHIBA</p>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl gradient-text mb-5">The goodest dog on the fastest chain.</h2>
+            <p class="text-[#c9d7f5] leading-relaxed mb-4">
+              Solchan is a Shiba dog bringing loyal vibes, wild memes, and unstoppable energy to Solana.
+              No sleepy whitepaper. No fake utility. Just a neon Shiba, a pack that barks together, and a ticker that hits different —
+              <span class="text-neon-cyan font-semibold">$SOLCHAN</span>.
+            </p>
+            <p class="text-[#9db0d4] leading-relaxed mb-8">
+              Born from Shiba loyalty and Solana speed, Solchan exists to bark at FUD, chase candles, and keep the pack loud.
+            </p>
+            <div class="grid sm:grid-cols-3 gap-3">
+              <div class="holo rounded-2xl p-4 text-center">
+                <div class="text-2xl mb-1">🐾</div>
+                <p class="font-display text-xs tracking-widest text-neon-mint">LOYAL VIBES</p>
+                <p class="mt-1 text-[11px] text-[#9db0d4]">Once you’re in, you’re family.</p>
+              </div>
+              <div class="holo rounded-2xl p-4 text-center">
+                <div class="text-2xl mb-1">🌙</div>
+                <p class="font-display text-xs tracking-widest text-neon-cyan">WILD MEMES</p>
+                <p class="mt-1 text-[11px] text-[#9db0d4]">The timeline never sleeps.</p>
+              </div>
+              <div class="holo rounded-2xl p-4 text-center">
+                <div class="text-2xl mb-1">⚡</div>
+                <p class="font-display text-xs tracking-widest text-neon-purple">UNSTOPPABLE</p>
+                <p class="mt-1 text-[11px] text-[#9db0d4]">Solana speed. Shiba heart.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div class="holo rounded-2xl px-4 py-4 text-center">
+            <p class="text-[10px] tracking-[0.25em] text-[#7f93b8] font-display">NAME</p>
+            <p class="mt-1 font-display font-bold text-neon-mint">Solchan</p>
+          </div>
+          <div class="holo rounded-2xl px-4 py-4 text-center">
+            <p class="text-[10px] tracking-[0.25em] text-[#7f93b8] font-display">TICKER</p>
+            <p class="mt-1 font-display font-bold text-neon-cyan">$SOLCHAN</p>
+          </div>
+          <div class="holo rounded-2xl px-4 py-4 text-center">
+            <p class="text-[10px] tracking-[0.25em] text-[#7f93b8] font-display">CHAIN</p>
+            <p class="mt-1 font-display font-bold text-neon-purple">Solana</p>
+          </div>
+          <div class="holo rounded-2xl px-4 py-4 text-center">
+            <p class="text-[10px] tracking-[0.25em] text-[#7f93b8] font-display">CA</p>
+            <button type="button" class="copy-ca-btn mt-1 font-display font-bold text-neon-mint hover:underline">GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump ⧉</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO BUY -->
+    <section id="how-to-buy" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <p class="font-display text-xs tracking-[0.35em] text-neon-mint mb-3">FETCH YOUR BAGS</p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl gradient-text mb-4">How to Buy $SOLCHAN</h2>
+          <p class="text-[#c9d7f5]">Four tricks. One Shiba. Buy $SOLCHAN on Solana in minutes — wallet, SOL, swap, fetch.</p>
+        </div>
+
+        <div class="relative">
+          <div class="hidden lg:block absolute top-[4.25rem] left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <article class="holo rounded-3xl p-6 relative hover:-translate-y-1 transition duration-300">
+              <div class="flex items-center justify-between mb-5">
+                <span class="step-num font-display font-black text-4xl">01</span>
+                <span class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00E8C4" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 14h2"/></svg>
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">Get a Wallet</h3>
+              <p class="text-sm text-[#9db0d4] leading-relaxed">Install <span class="text-neon-mint">Phantom</span> or <span class="text-neon-mint">Solflare</span>. That’s your kennel on Solana — it holds SOL and $SOLCHAN.</p>
+            </article>
+
+            <article class="holo rounded-3xl p-6 relative hover:-translate-y-1 transition duration-300">
+              <div class="flex items-center justify-between mb-5">
+                <span class="step-num font-display font-black text-4xl">02</span>
+                <span class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg>
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">Fill the Bowl with SOL</h3>
+              <p class="text-sm text-[#9db0d4] leading-relaxed">Buy SOL on any major exchange, then send it to your wallet. Keep a little extra for network fees.</p>
+            </article>
+
+            <article class="holo rounded-3xl p-6 relative hover:-translate-y-1 transition duration-300">
+              <div class="flex items-center justify-between mb-5">
+                <span class="step-num font-display font-black text-4xl">03</span>
+                <span class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7B8CFF" stroke-width="1.8"><path d="M7 7h10v4M17 17H7v-4M17 7l3 3-3 3M7 17l-3-3 3-3"/></svg>
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">Open the Swap</h3>
+              <p class="text-sm text-[#9db0d4] leading-relaxed">Hit <a class="text-neon-mint underline underline-offset-2" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer">Buy Now</a> to open pump.fun with SOL already set as input.</p>
+            </article>
+
+            <article class="holo rounded-3xl p-6 relative hover:-translate-y-1 transition duration-300">
+              <div class="flex items-center justify-between mb-5">
+                <span class="step-num font-display font-black text-4xl">04</span>
+                <span class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center ring-1 ring-white/10">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="#C084FC"><ellipse cx="12" cy="16.2" rx="5.2" ry="4.2"/><circle cx="5.2" cy="10.2" r="2.1"/><circle cx="9.2" cy="7.1" r="2.15"/><circle cx="14.8" cy="7.1" r="2.15"/><circle cx="18.8" cy="10.2" r="2.1"/></svg>
+                </span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white mb-2">Fetch $SOLCHAN</h3>
+              <p class="text-sm text-[#9db0d4] leading-relaxed">Paste the contract, confirm the swap, and join the pack. Copy CA first if you need it:</p>
+              <button type="button" class="copy-ca-btn mt-3 text-xs font-bold text-neon-mint hover:text-white transition">Copy CA · GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump</button>
+            </article>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-buy inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-extrabold">Buy $SOLCHAN Now</a>
+          <a href="https://dexscreener.com/solana/GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-chart inline-flex items-center justify-center rounded-full px-8 py-3.5 text-sm font-bold">Open Chart</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHART -->
+    <section id="chart" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+          <div>
+            <p class="font-display text-xs tracking-[0.35em] text-neon-mint mb-3">THE HUNT</p>
+            <h2 class="font-display font-extrabold text-3xl sm:text-5xl gradient-text">Live Chart</h2>
+            <p class="mt-2 text-[#c9d7f5]">Track $SOLCHAN on Dexscreener. Replace GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump with the live pair when the token launches.</p>
+          </div>
+          <a href="https://dexscreener.com/solana/GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-chart inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs font-bold self-start sm:self-auto">Open Dexscreener ↗</a>
+        </div>
+        <div class="holo rounded-3xl overflow-hidden shadow-[0_20px_80px_rgba(153,69,255,0.18)]">
+          <div class="relative w-full h-[420px] md:h-[640px] bg-[#0b1220]">
+            <iframe
+              title="Solchan Dexscreener chart"
+              src="https://dexscreener.com/solana/GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump?embed=1&theme=dark&trades=0&info=0"
+              class="absolute inset-0 w-full h-full border-0"
+              allow="clipboard-write"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PACK -->
+    <section id="pack" class="relative py-20 sm:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+          <p class="font-display text-xs tracking-[0.35em] text-neon-mint mb-3">HOWLS WELCOME</p>
+          <h2 class="font-display font-extrabold text-3xl sm:text-5xl gradient-text mb-4">Join the Pack</h2>
+          <p class="text-[#c9d7f5]">Memes drop first in the den. Come bark with us.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+          <a href="https://t.me/Solchanmeme" target="_blank" rel="noopener noreferrer" class="holo rounded-3xl p-8 flex items-center gap-5 hover:-translate-y-1 transition duration-300 group">
+            <img src="tg.png" alt="" class="w-16 h-16 rounded-full ring-1 ring-white/10 group-hover:scale-110 transition" />
+            <div>
+              <p class="font-display font-bold text-xl text-white">Telegram</p>
+              <p class="text-sm text-[#9db0d4] mt-1">t.me/Solchanmeme — live chat, raids, and good boy energy.</p>
+            </div>
+          </a>
+          <a href="https://x.com/Solchanmeme" target="_blank" rel="noopener noreferrer" class="holo rounded-3xl p-8 flex items-center gap-5 hover:-translate-y-1 transition duration-300 group">
+            <img src="x.png" alt="" class="w-16 h-16 rounded-full ring-1 ring-white/10 bg-black group-hover:scale-110 transition" />
+            <div>
+              <p class="font-display font-bold text-xl text-white">X / Twitter</p>
+              <p class="text-sm text-[#9db0d4] mt-1">@Solchanmeme — memes, updates, and pack howls.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t border-white/10 pt-12 pb-28 md:pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div class="flex items-center gap-3">
+          <img src="logo.jpg" alt="Solchan" class="w-12 h-12 rounded-xl object-cover ring-1 ring-white/10" />
+          <div>
+            <p class="font-display font-extrabold tracking-[0.2em] gradient-text">SOLCHAN</p>
+            <p class="text-xs text-[#7f93b8]">$SOLCHAN · Solana Shiba</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://t.me/Solchanmeme" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/10"><img src="tg.png" alt="Telegram" /></a>
+          <a href="https://x.com/Solchanmeme" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full overflow-hidden ring-1 ring-white/10 bg-black"><img src="x.png" alt="X" /></a>
+          <button type="button" class="copy-ca-btn holo rounded-full px-4 py-2 text-xs font-bold text-neon-mint">Copy CA</button>
+        </div>
+      </div>
+      <p class="mt-8 text-[11px] leading-relaxed text-[#6b7c9c] max-w-3xl">
+        $SOLCHAN is a meme coin on Solana with no intrinsic value or expectation of financial return.
+        Not financial advice. Always DYOR and verify the contract address before swapping.
+        © <span id="year">2026</span> Solchan. All barks reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTAs -->
+  <div class="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-white/10 bg-[#07060f]/92 backdrop-blur-lg safe-bottom">
+    <div class="px-4 py-3 grid grid-cols-2 gap-2">
+      <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-buy text-center rounded-full py-3 text-sm font-extrabold">Buy Now</a>
+      <a href="https://dexscreener.com/solana/GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump" target="_blank" rel="noopener noreferrer" class="btn-chart text-center rounded-full py-3 text-sm font-bold">Chart</a>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Contract address copied</div>
+
+  <script>
+    const CA = "GcbU3dVqdJjKcnzbhfBpaKy48ibXPfGwDnWh132Dpump";
+
+    const nav = document.getElementById("nav");
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const toast = document.getElementById("toast");
+    const year = document.getElementById("year");
+    if (year) year.textContent = new Date().getFullYear();
+
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
+
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("hidden") === false;
+      menuBtn.setAttribute("aria-expanded", String(open));
+    });
+    mobileMenu.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    let toastTimer;
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+
+    async function copyCA() {
+      try {
+        await navigator.clipboard.writeText(CA);
+      } catch {
+        const ta = document.createElement("textarea");
+        ta.value = CA;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      const label = document.getElementById("copy-label");
+      if (label) {
+        label.textContent = "Copied";
+        setTimeout(() => { label.textContent = "Copy"; }, 1800);
+      }
+      showToast("Contract address copied · " + CA);
+    }
+
+    document.getElementById("copy-ca").addEventListener("click", copyCA);
+    document.querySelectorAll(".copy-ca-btn").forEach((btn) => btn.addEventListener("click", copyCA));
+  </script>
+</body>
+</html>
